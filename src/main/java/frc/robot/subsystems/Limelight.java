@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.math.VecBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -12,7 +13,16 @@ import frc.robot.LimelightHelpers;
 
 public class Limelight extends SubsystemBase {
   /** Creates a new Limelight. */
-  public Limelight() {}
+  public Limelight() {
+     LimelightHelpers.PoseEstimate limelightMeasurement = LimelightHelpers.getBotPoseEstimate_wpiBlue("limelight");
+   if(limelightMeasurement.tagCount >= 2)
+   {
+     LimelightHelpers.PoseEstimate.setVisionMeasurementStdDevs(VecBuilder.fill(.7,.7,9999999));
+     LimelightHelpers.PoseEstimate.addVisionMeasurement(
+         limelightMeasurement.pose,
+         limelightMeasurement.timestampSeconds);
+   }
+  }
 
   @Override
   public void periodic() {
