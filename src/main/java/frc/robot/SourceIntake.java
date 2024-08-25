@@ -36,14 +36,14 @@ public class SourceIntake extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    intake.RollerMove(-0.5);
-    intake.HoodMove(100);
-    if (intake.sensor() == true){
-      intake.FeederMove(0);
-      intake.HoodMove(100);
-      check = true;
+    // intake.RollerMove(-0.5);
+    // intake.HoodMove(100);
+    // if (intake.sensor() == true){
+    //   intake.FeederMove(0);
+    //   intake.HoodMove(100);
+    //   check = true;
 
-    } 
+    // } 
 
     
   }

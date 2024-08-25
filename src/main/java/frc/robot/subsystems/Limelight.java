@@ -17,6 +17,6 @@ public class Limelight extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    SmartDashboard.putString("Position: ", LimelightHelpers.getBotPose2d("Limelight-left").toString());
+    SmartDashboard.putString("Position: ", LimelightHelpers.getBotPoseEstimate_wpiBlue_MegaTag2("Limelight").toString());
   }
 }
